@@ -20,3 +20,64 @@
   --font-display: "Space Grotesk", "Inter", sans-serif;
 }
 
+/* ============================================================
+   TEMA NEBULA · morado sobre negro
+   ============================================================ */
+:root {
+  --bg: #05030a;
+  --surface: #0c0817;
+  --card: rgb(17 11 32 / 0.62);
+  --ink: #f5f3ff;
+  --muted: #a8a1c4;
+  --subtle: #6d6689;
+  --line: rgb(167 139 250 / 0.14);
+  --line-strong: rgb(167 139 250 / 0.45);
+  --primary: #8b5cf6;
+  --primary-ink: #c4b5fd;
+  --accent: #d946ef;
+  --accent-ink: #f0abfc;
+  --on-primary: #ffffff;
+  --radius: 16px;
+  --glow: 0 0 40px -8px rgb(139 92 246 / 0.55);
+  --shadow: 0 24px 60px -24px rgb(0 0 0 / 0.8);
+  --deck: #0d0818;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+html[data-fx="off"] {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--primary);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-ink);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+html:not([data-intro="seen"]):not([data-intro-start]) body {
+  overflow: hidden;
+}
+html[data-intro="seen"] .title-screen {
+  display: none;
+}
+
+.font-display {
+  letter-spacing: -0.03em;
+}
+
