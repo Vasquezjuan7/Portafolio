@@ -770,3 +770,88 @@ html:not(.has-cursor) .cursor-layer {
   opacity: 1;
 }
 
+/* Arte generativo de los proyectos */
+.project-art {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.project-art::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(from 0deg, hsl(var(--h) 90% 60% / 0.55), transparent 25%, hsl(calc(var(--h) + 50) 90% 60% / 0.45) 50%, transparent 75%, hsl(var(--h) 90% 60% / 0.55));
+  filter: blur(40px);
+  animation: sweep 14s linear infinite;
+}
+.project-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at 50% 40%, black, transparent 75%);
+}
+
+/* Telón de la intro */
+.curtain {
+  transition: transform 1s cubic-bezier(0.77, 0, 0.18, 1);
+}
+.group:hover .hover-fill {
+  background: linear-gradient(100deg, #c4b5fd, #a855f7, #e879f9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px transparent;
+  filter: drop-shadow(0 0 30px rgb(168 85 247 / 0.5));
+}
+
+/* Anillos de habilidades */
+.ring-fill {
+  stroke-dashoffset: var(--c);
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 4px #c026d3);
+}
+.is-visible .ring-fill {
+  stroke-dashoffset: var(--o);
+}
+html[data-fx="off"] .ring-fill {
+  stroke-dashoffset: var(--o);
+}
+
+/* Tarjetas que entran desde los lados */
+.reveal[data-side="left"] {
+  transform: translateX(-70px) rotate(-2deg);
+}
+.reveal[data-side="right"] {
+  transform: translateX(70px) rotate(2deg);
+}
+.reveal[data-side].is-visible {
+  transform: none;
+}
+
+/* Chispas del clic */
+.spark {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: #f0abfc;
+  box-shadow: 0 0 8px #e879f9;
+  animation: spark 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes spark {
+  to {
+    transform: translate(var(--dx), var(--dy)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Cinta de tecnologías y fondo de las tarjetas de testimonios (tema oscuro) */
+.tech-ribbon {
+  background: linear-gradient(90deg, rgb(46 16 101 / 0.8), rgb(88 28 135 / 0.6), rgb(74 4 78 / 0.8));
+}
+.codescape-bg {
+  background: radial-gradient(ellipse at 72% 45%, #1e0b3d 0%, #05030a 62%);
+}
+
