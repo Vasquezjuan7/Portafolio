@@ -228,3 +228,72 @@ html[data-intro="seen"] .title-screen {
   transform: translateY(-2px);
 }
 
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: rgb(139 92 246 / 0.06);
+}
+
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding: 0 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--line-strong);
+  border-bottom-width: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ink);
+  background: rgb(0 0 0 / 0.3);
+}
+
+.bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.07);
+  overflow: hidden;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7c3aed, #c084fc, #d946ef);
+  box-shadow: 0 0 12px rgb(192 132 252 / 0.6);
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-bg {
+  background-image: linear-gradient(to right, rgb(167 139 250 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(167 139 250 / 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, #ede9fe 0%, #c4b5fd 30%, #a855f7 60%, #e879f9 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine-text 6s linear infinite;
+}
+@keyframes shine-text {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.paper {
+  background: linear-gradient(180deg, rgb(139 92 246 / 0.07), transparent 60%), var(--card);
+}
+
