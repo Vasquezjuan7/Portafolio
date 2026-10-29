@@ -855,3 +855,98 @@ html[data-fx="off"] .ring-fill {
   background: radial-gradient(ellipse at 72% 45%, #1e0b3d 0%, #05030a 62%);
 }
 
+/* ============================================================
+   TEMA CLARO  (html[data-theme="light"])
+   Fondo blanco con los mismos acentos morados y fucsia.
+   ============================================================ */
+html[data-theme="light"] {
+  --bg: #fbfaff;
+  --surface: #f4f0ff;
+  --card: rgb(255 255 255 / 0.78);
+  --ink: #1b1033;
+  --muted: #514873;
+  --subtle: #8b83a8;
+  --line: rgb(109 40 217 / 0.14);
+  --line-strong: rgb(109 40 217 / 0.4);
+  --primary: #7c3aed;
+  --primary-ink: #6d28d9;
+  --accent: #c026d3;
+  --accent-ink: #a21caf;
+  --glow: 0 0 40px -10px rgb(124 58 237 / 0.35);
+  --shadow: 0 24px 60px -30px rgb(76 29 149 / 0.28);
+  --deck: #ffffff;
+  color-scheme: light;
+}
+html[data-theme="light"] .codescape-bg {
+  background: radial-gradient(ellipse at 72% 45%, #ede4ff 0%, #fbfaff 60%);
+}
+html[data-theme="light"] .noise {
+  opacity: 0.025;
+}
+html[data-theme="light"] .panel {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.9), rgb(255 255 255 / 0.55) 40%), var(--card);
+  box-shadow: var(--shadow), inset 0 1px 0 rgb(255 255 255 / 0.9);
+}
+html[data-theme="light"] .panel-hover:hover {
+  box-shadow: 0 24px 60px -24px rgb(124 58 237 / 0.35);
+}
+html[data-theme="light"] .btn-primary {
+  box-shadow: 0 10px 30px -12px rgb(124 58 237 / 0.55), inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+html[data-theme="light"] .btn-ghost {
+  background: rgb(124 58 237 / 0.06);
+  color: var(--ink);
+}
+html[data-theme="light"] .chip {
+  background: rgb(124 58 237 / 0.07);
+}
+html[data-theme="light"] .kbd {
+  background: rgb(124 58 237 / 0.08);
+  color: var(--ink);
+}
+html[data-theme="light"] .bar {
+  background: rgb(124 58 237 / 0.1);
+}
+html[data-theme="light"] .text-gradient {
+  background-image: linear-gradient(100deg, #4c1d95 0%, #7c3aed 35%, #a21caf 70%, #c026d3 100%);
+}
+html[data-theme="light"] .text-outline {
+  -webkit-text-stroke: 1px rgb(109 40 217 / 0.35);
+}
+html[data-theme="light"] .split-char:hover {
+  color: #c026d3;
+}
+html[data-theme="light"] .tech-ribbon {
+  background: linear-gradient(90deg, rgb(237 233 254 / 0.9), rgb(250 232 255 / 0.85), rgb(237 233 254 / 0.9));
+}
+/* Capas translúcidas negras → velo blanco */
+html[data-theme="light"] [class*="bg-black/"] {
+  background-color: rgb(255 255 255 / 0.72);
+}
+html[data-theme="light"] .fixed[class*="bg-black/"] {
+  background-color: rgb(244 240 255 / 0.82);
+}
+html[data-theme="light"] [class*="bg-white/"] {
+  background-color: rgb(124 58 237 / 0.04);
+}
+/* Colores claros que no se leerían sobre blanco */
+html[data-theme="light"] .text-fuchsia-300,
+html[data-theme="light"] .text-fuchsia-400 {
+  color: #a21caf;
+}
+html[data-theme="light"] [class*="text-fuchsia-400/"] {
+  color: rgb(162 28 175 / 0.6);
+}
+html[data-theme="light"] .text-amber-300 {
+  color: #fcd34d;
+}
+html[data-theme="light"] .text-amber-400 {
+  color: #d97706;
+}
+html[data-theme="light"] .cursor-ring::before {
+  border-color: rgb(109 40 217 / 0.5);
+}
+html[data-theme="light"] .cursor-dot {
+  background: #a21caf;
+  box-shadow: 0 0 8px rgb(192 38 211 / 0.6);
+}
