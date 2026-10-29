@@ -612,3 +612,102 @@ html[data-fx="off"] *::after {
   border: 2px solid var(--bg);
 }
 
+/* ============================================================
+   EFECTOS "WOW"
+   ============================================================ */
+
+/* Las animaciones del inicio esperan a que termine la intro */
+html:not([data-intro="seen"]):not([data-intro-start]) #inicio *,
+html:not([data-intro="seen"]):not([data-intro-start]) #inicio *::before,
+html:not([data-intro="seen"]):not([data-intro-start]) #inicio *::after {
+  animation-play-state: paused !important;
+}
+
+/* Cursor personalizado */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+html.has-cursor input,
+html.has-cursor textarea {
+  cursor: text !important;
+}
+html[data-fx="off"] .cursor-layer {
+  display: none;
+}
+html[data-fx="off"].has-cursor,
+html[data-fx="off"].has-cursor * {
+  cursor: auto !important;
+}
+.cursor-layer {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+}
+html:not(.has-cursor) .cursor-layer {
+  display: none;
+}
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: #f0abfc;
+  box-shadow: 0 0 10px #e879f9;
+}
+.cursor-ring {
+  width: 0;
+  height: 0;
+  display: grid;
+  place-items: center;
+}
+.cursor-ring::before {
+  content: "";
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgb(196 181 253 / 0.6);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), height 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s, border-color 0.3s;
+}
+.cursor-ring[data-state="hover"]::before {
+  width: 58px;
+  height: 58px;
+  border-color: #e879f9;
+  background: rgb(217 70 239 / 0.1);
+}
+.cursor-ring[data-state="label"]::before {
+  width: 96px;
+  height: 96px;
+  border-color: transparent;
+  background: linear-gradient(135deg, #7c3aed, #d946ef);
+  box-shadow: 0 0 40px -6px #a855f7;
+}
+.cursor-ring[data-down]::before {
+  width: 26px;
+  height: 26px;
+}
+.cursor-label {
+  position: relative;
+  font: 600 12px var(--font-hud);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.cursor-ring[data-state="label"] .cursor-label {
+  opacity: 1;
+}
+.magnetic {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
