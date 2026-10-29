@@ -388,3 +388,24 @@ html[data-intro="seen"] .title-screen {
   }
 }
 
+/* Órbitas del avatar */
+.orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgb(167 139 250 / 0.25);
+  animation: sweep linear infinite;
+}
+.orbit::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  border-radius: 50%;
+  background: #e879f9;
+  box-shadow: 0 0 14px #e879f9;
+}
+
