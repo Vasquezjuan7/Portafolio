@@ -950,3 +950,8 @@ html[data-theme="light"] .cursor-dot {
   background: #a21caf;
   box-shadow: 0 0 8px rgb(192 38 211 / 0.6);
 }
+/* Transición suave al cambiar de tema */
+html,
+body {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
