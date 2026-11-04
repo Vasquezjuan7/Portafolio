@@ -92,7 +92,7 @@ export type ChapterId = (typeof CHAPTER_IDS)[number];
 
 export type Content = {
   profile: Profile;
-  attributes: { label: string; value: number }[];
+  attributes: { label: string; value: number; detail: string }[];
   quickStats: { value: string; label: string }[];
   projects: Project[];
   story: StoryItem[];
@@ -136,12 +136,12 @@ const es: Content = {
   },
 
   attributes: [
-    { label: "Frontend", value: 92 },
-    { label: "UI / UX", value: 86 },
-    { label: "Rendimiento", value: 80 },
-    { label: "Backend", value: 62 },
-    { label: "Equipo", value: 88 },
-    { label: "Aprendizaje", value: 95 },
+    { label: "Frontend", value: 92, detail: "React, Next.js y TypeScript: interfaces animadas como este portafolio y CodeCity Nexus 3D." },
+    { label: "UI / UX", value: 86, detail: "Diseño interfaces, sistemas visuales y microinteracciones pensadas en quien las usa." },
+    { label: "Rendimiento", value: 80, detail: "Carga diferida, renders optimizados y animaciones fluidas a 60 fps." },
+    { label: "Backend", value: 62, detail: "Node.js, Supabase y SQLite: APIs, autenticación y bases de datos con RLS." },
+    { label: "Equipo", value: 88, detail: "Git, revisiones de código y comunicación clara en proyectos académicos y propios." },
+    { label: "Aprendizaje", value: 95, detail: "Aprendo rápido: Kotlin, Unity, Wear OS y Electron en proyectos personales." },
   ],
 
   quickStats: [
@@ -423,12 +423,12 @@ const en: Content = {
   },
 
   attributes: [
-    { label: "Frontend", value: 92 },
-    { label: "UI / UX", value: 86 },
-    { label: "Performance", value: 80 },
-    { label: "Backend", value: 62 },
-    { label: "Teamwork", value: 88 },
-    { label: "Learning", value: 95 },
+    { label: "Frontend", value: 92, detail: "React, Next.js and TypeScript: animated interfaces like this portfolio and CodeCity Nexus 3D." },
+    { label: "UI / UX", value: 86, detail: "I design interfaces, visual systems and micro-interactions built around the people who use them." },
+    { label: "Performance", value: 80, detail: "Lazy loading, optimized renders and smooth 60 fps animations." },
+    { label: "Backend", value: 62, detail: "Node.js, Supabase and SQLite: APIs, authentication and databases with RLS." },
+    { label: "Teamwork", value: 88, detail: "Git, code reviews and clear communication in academic and personal projects." },
+    { label: "Learning", value: 95, detail: "I learn fast: Kotlin, Unity, Wear OS and Electron in personal projects." },
   ],
 
   quickStats: [
