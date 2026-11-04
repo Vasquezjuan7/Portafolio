@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio interactivo · Juan
 
-## Getting Started
+Portafolio profesional presentado como un videojuego: pantalla de título, HUD, minimapa, capítulos, logros, combate por turnos y seis mundos visuales inspirados en anime y videojuegos (todo el arte es original).
 
-First, run the development server:
+Hecho con **Next.js 16**, **React 19**, **TypeScript** y **Tailwind CSS 4**. Sin imágenes ni sonidos externos: las partículas son Canvas 2D y los efectos de sonido se sintetizan con Web Audio.
+
+## Empezar
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # compilación de producción
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Personalizar el contenido
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Todo el texto vive en **`data/portfolio.ts`**: perfil, contacto, proyectos, experiencia, habilidades y testimonios. Busca los comentarios `TODO` y reemplázalos por tus datos reales. Sube tu CV a `public/cv.pdf`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Los mundos visuales (colores, energía, partículas) están en `data/worlds.ts`, y sus estilos en `app/globals.css`.
 
-## Learn More
+## Formulario de contacto
 
-To learn more about Next.js, take a look at the following resources:
+Sin configuración, el formulario valida los campos y abre el cliente de correo del visitante con el mensaje ya escrito. Para recibir los mensajes directamente:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Crea un formulario gratuito en [formspree.io](https://formspree.io).
+2. Copia `.env.example` a `.env.local` y pon tu ID en `NEXT_PUBLIC_FORMSPREE_ID`.
+3. En Vercel, añade la misma variable en *Settings → Environment Variables*.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura
 
-## Deploy on Vercel
+```
+app/                  layout, página y estilos globales (mundos, modo día/noche)
+components/game/      motor del juego: partida guardada, HUD, minimapa, menú de pausa,
+                      notificaciones, banner, partículas, sonido y pantalla de título
+components/sections/  capítulos: Inicio, Perfil, Misiones, Historia, Arena, Aliados, Contacto, Créditos
+data/                 contenido del portafolio y definición de los mundos
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Controles
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Tecla | Acción |
+| --- | --- |
+| `Enter` | Empezar desde la pantalla de título |
+| `Esc` | Menú de pausa (capítulos, logros, ajustes) |
+| `1` `2` `3` | Técnicas en la arena de combate |
+| `←` `→` | Cambiar de aliado |
+
+La opción **Vista rápida** de la pantalla de título y el ajuste **Efectos visuales** desactivan animaciones y partículas. También se respeta `prefers-reduced-motion`.
