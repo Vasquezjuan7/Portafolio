@@ -76,6 +76,7 @@ const es = {
   languages: "Idiomas",
   status: "Estado",
   attributesLabel: "Atributos",
+  attributesHint: "Pasa el cursor o toca un atributo para ver el detalle.",
 
   // Proyectos
   projectsKicker: "Proyectos",
@@ -297,6 +298,7 @@ const en: Dict = {
   languages: "Languages",
   status: "Status",
   attributesLabel: "Attributes",
+  attributesHint: "Hover or tap an attribute to see the details.",
 
   projectsKicker: "Projects",
   projectsTitle: ["Featured ", "projects"],
