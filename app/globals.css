@@ -805,19 +805,6 @@ html:not(.has-cursor) .cursor-layer {
   filter: drop-shadow(0 0 30px rgb(168 85 247 / 0.5));
 }
 
-/* Anillos de habilidades */
-.ring-fill {
-  stroke-dashoffset: var(--c);
-  transition: stroke-dashoffset 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 0 4px #c026d3);
-}
-.is-visible .ring-fill {
-  stroke-dashoffset: var(--o);
-}
-html[data-fx="off"] .ring-fill {
-  stroke-dashoffset: var(--o);
-}
-
 /* Tarjetas que entran desde los lados */
 .reveal[data-side="left"] {
   transform: translateX(-70px) rotate(-2deg);
