@@ -154,22 +154,14 @@ export async function buildCv(lang: Lang) {
   for (const br of c.skillTree) {
     ensure(12);
     para(br.branch, { size: 10, style: "bold", rgb: INK, gap: 1 });
+    // Solo el nombre de la habilidad y lo que sé hacer con ella, sin niveles ni barras.
     for (const n of br.nodes) {
       ensure(10);
       font("bold", 9.2);
       color(INK);
       doc.text(n.name, M + 2, y + 3.2);
-      // Barra de nivel
-      const bx = W - M - 52;
-      doc.setFillColor(225, 225, 232);
-      doc.roundedRect(bx, y + 1, 30, 2.6, 1.3, 1.3, "F");
-      doc.setFillColor(ACCENT[0], ACCENT[1], ACCENT[2]);
-      doc.roundedRect(bx, y + 1, (30 * n.rank) / 5, 2.6, 1.3, 1.3, "F");
-      font("normal", 8.4);
-      color(MUTED);
-      doc.text(c.rankLabels[n.rank], W - M, y + 3.2, { align: "right" });
       y += 4.4;
-      para(n.detail, { size: 8.4, rgb: MUTED, x: M + 2, width: CW - 58, gap: 1.4 });
+      para(n.detail, { size: 8.4, rgb: MUTED, x: M + 2, gap: 1.4 });
     }
     y += 1.5;
   }
