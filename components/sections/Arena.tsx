@@ -77,8 +77,14 @@ function SkillTree() {
           </ul>
         </div>
       ))}
-      <p className="text-xs text-subtle lg:col-span-3">
-        {t.selfAssessment}: {([1, 2, 3, 4, 5] as const).map((r) => `${r} ${rankLabels[r]}`).join(" · ")}.
+      <p className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-subtle lg:col-span-3">
+        <span>{t.selfAssessment}:</span>
+        {([1, 2, 3, 4, 5] as const).map((r) => (
+          <span key={r} className="inline-flex items-center gap-1.5">
+            <RankIcon rank={r} className="h-3.5 w-3.5 text-fuchsia-300" />
+            {rankLabels[r]}
+          </span>
+        ))}
       </p>
     </div>
   );
