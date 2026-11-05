@@ -11,35 +11,15 @@ import type { Dict } from "../../data/i18n";
 
 /* ---------------- Árbol de técnicas ---------------- */
 
-const RING = 2 * Math.PI * 26;
-
-function SkillRing({ node, delay }: { node: SkillNode; delay: number }) {
+function SkillItem({ node }: { node: SkillNode }) {
   const { c } = useGame();
   return (
     <li className="group flex items-center gap-4 rounded-2xl border border-line bg-white/[0.02] p-3 transition-colors hover:border-fuchsia-400/40 hover:bg-fuchsia-500/[0.05]">
-      <span className="relative grid h-16 w-16 shrink-0 place-items-center">
-        <svg viewBox="0 0 64 64" className="absolute inset-0 -rotate-90" aria-hidden="true">
-          <circle cx="32" cy="32" r="26" fill="none" stroke="rgb(255 255 255 / 0.07)" strokeWidth="4" />
-          <circle
-            className="ring-fill"
-            cx="32"
-            cy="32"
-            r="26"
-            fill="none"
-            stroke="url(#ring-grad)"
-            strokeWidth="4"
-            strokeLinecap="round"
-            strokeDasharray={RING}
-            style={{ ["--c" as string]: RING, ["--o" as string]: RING * (1 - node.rank / 5), transitionDelay: `${delay}s` }}
-          />
-        </svg>
-        <span className="text-ink transition-transform group-hover:scale-110" title={c.rankLabels[node.rank]}>
-          <RankIcon rank={node.rank} className="h-6 w-6 text-fuchsia-300" />
-        </span>
+      <span className="grid w-10 shrink-0 place-items-center transition-transform group-hover:scale-110" title={c.rankLabels[node.rank]}>
+        <RankIcon rank={node.rank} className="h-7 w-7 text-fuchsia-300" />
       </span>
       <span className="min-w-0">
         <span className="block font-semibold text-ink">{node.name}</span>
-        <span className="block text-xs text-fuchsia-300">{c.rankLabels[node.rank]}</span>
         <span className="mt-0.5 block text-xs leading-snug text-muted">{node.detail}</span>
       </span>
     </li>
@@ -47,18 +27,10 @@ function SkillRing({ node, delay }: { node: SkillNode; delay: number }) {
 }
 
 function SkillTree() {
-  const { c, t } = useGame();
-  const { skillTree, rankLabels } = c;
+  const { c } = useGame();
+  const { skillTree } = c;
   return (
     <div className="grid gap-6 lg:grid-cols-3">
-      <svg width="0" height="0" className="absolute" aria-hidden="true">
-        <defs>
-          <linearGradient id="ring-grad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#e879f9" />
-          </linearGradient>
-        </defs>
-      </svg>
       {skillTree.map((branch, bi) => (
         <div key={branch.branch} className="reveal panel glow-border p-6" style={{ transitionDelay: `${bi * 0.12}s` }}>
           <div className="flex items-center justify-between">
@@ -71,21 +43,12 @@ function SkillTree() {
             <span className="font-mono text-xs text-subtle">{String(bi + 1).padStart(2, "0")}</span>
           </div>
           <ul className="mt-6 space-y-2.5">
-            {branch.nodes.map((n, i) => (
-              <SkillRing key={n.name} node={n} delay={0.3 + bi * 0.12 + i * 0.1} />
+            {branch.nodes.map((n) => (
+              <SkillItem key={n.name} node={n} />
             ))}
           </ul>
         </div>
       ))}
-      <p className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-subtle lg:col-span-3">
-        <span>{t.selfAssessment}:</span>
-        {([1, 2, 3, 4, 5] as const).map((r) => (
-          <span key={r} className="inline-flex items-center gap-1.5">
-            <RankIcon rank={r} className="h-3.5 w-3.5 text-fuchsia-300" />
-            {rankLabels[r]}
-          </span>
-        ))}
-      </p>
     </div>
   );
 }
