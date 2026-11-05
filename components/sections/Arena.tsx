@@ -5,6 +5,7 @@ import { Bug, Heart, RotateCcw, Shield, Sparkles, Swords, Zap } from "lucide-rea
 import Chapter from "../game/Chapter";
 import { useGame } from "../game/GameProvider";
 import { sfx } from "../game/sfx";
+import RankIcon from "../RankIcon";
 import type { SkillNode } from "../../data/portfolio";
 import type { Dict } from "../../data/i18n";
 
@@ -32,7 +33,9 @@ function SkillRing({ node, delay }: { node: SkillNode; delay: number }) {
             style={{ ["--c" as string]: RING, ["--o" as string]: RING * (1 - node.rank / 5), transitionDelay: `${delay}s` }}
           />
         </svg>
-        <span className="font-display text-lg font-bold text-ink transition-transform group-hover:scale-110">{node.rank * 20}</span>
+        <span className="text-ink transition-transform group-hover:scale-110" title={c.rankLabels[node.rank]}>
+          <RankIcon rank={node.rank} className="h-6 w-6 text-fuchsia-300" />
+        </span>
       </span>
       <span className="min-w-0">
         <span className="block font-semibold text-ink">{node.name}</span>
